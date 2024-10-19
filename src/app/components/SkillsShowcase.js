@@ -1,6 +1,8 @@
+"use client";
+
 export default function SkillsShowcase() {
   return (
-    <section className="bg-black text-white py-24">
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-5xl font-bold uppercase mb-16">
           Skills & Technologies
@@ -10,10 +12,9 @@ export default function SkillsShowcase() {
           {/* Front-End Technologies */}
           <div className="p-6 hover:text-yellow-500 transition-colors">
             <img
-              src="/src/app/icons/html.svg"
+              src="/icons/html.svg"
               alt="HTML Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the HTML icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -27,7 +28,6 @@ export default function SkillsShowcase() {
               src="/icons/css3.svg"
               alt="CSS Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the CSS icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -41,7 +41,6 @@ export default function SkillsShowcase() {
               src="/icons/javascript.svg"
               alt="JavaScript Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the JavaScript icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -57,7 +56,6 @@ export default function SkillsShowcase() {
               src="/icons/react.svg"  // Assuming you placed it in the icons folder
               alt="React Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the React icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -104,7 +102,6 @@ export default function SkillsShowcase() {
               src="/icons/nodejs.svg"
               alt="Node.js Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the Node.js icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -120,7 +117,6 @@ export default function SkillsShowcase() {
               src="/icons/python.svg"
               alt="Python Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the Python icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -136,7 +132,6 @@ export default function SkillsShowcase() {
               src="/icons/django.svg"
               alt="Django Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the Django icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -152,7 +147,6 @@ export default function SkillsShowcase() {
               src="/icons/docker.svg"
               alt="Docker Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the Docker icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">
@@ -168,7 +162,6 @@ export default function SkillsShowcase() {
               src="/icons/git.svg"
               alt="Git Icon"
               className="mx-auto w-16 h-16 mb-4"
-              style={{ filter: 'invert(1)' }}  // Makes the Git icon white
             />
             {/* Fine Progress Bar */}
             <div className="w-full bg-gray-700 h-1 mb-4 rounded-lg">

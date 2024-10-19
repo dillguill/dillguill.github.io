@@ -36,7 +36,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="p-4 bg-beige dark:bg-space-gray fixed w-full z-20 top-0 left-0 backdrop-blur-lg">
+    <header className="p-4 fixed w-full z-20 top-0 left-0 backdrop-blur-lg">
       <nav className="container mx-auto flex justify-between items-center">
         {/* Logo / Brand Name */}
         <div className="text-3xl font-bold">
