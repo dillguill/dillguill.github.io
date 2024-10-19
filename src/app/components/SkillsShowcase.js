@@ -127,7 +127,7 @@ export default function SkillsShowcase() {
               <div className="bg-yellow-500 h-1 rounded-lg" style={{ width: '0%' }}></div>
             </div>
             <h3 className="text-2xl font-semibold mb-4">Python</h3>
-            <p className="text-gray-400">Coming Soon</p> {/* Placeholder text */}
+            <p className="text-gray-400">Coming Soon</p> {/* Backend programming language. */}
           </div>
 
           {/* Django */}
