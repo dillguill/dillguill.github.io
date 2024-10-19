@@ -1,3 +1,8 @@
+# My Portfolio
+Current build demo: dillguill.netlify.app
+
+I used images from the web as inspiration, but everything you see here I built (with much trial and tribulation) with many failed first attempts at building with a new tool, Next.js.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
