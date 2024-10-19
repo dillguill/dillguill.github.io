@@ -10,7 +10,7 @@ export default function SkillsShowcase() {
           {/* Front-End Technologies */}
           <div className="p-6 hover:text-yellow-500 transition-colors">
             <img
-              src="/icons/html.svg"
+              src="/src/app/icons/html.svg"
               alt="HTML Icon"
               className="mx-auto w-16 h-16 mb-4"
               style={{ filter: 'invert(1)' }}  // Makes the HTML icon white

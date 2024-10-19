@@ -5,3 +5,40 @@
 html {
   scroll-behavior: smooth;
 }
+
+.orb {
+  position: absolute;
+  background-color: rgba(255, 94, 58, 0.6); /* Sunset orange with transparency */
+  border-radius: 50%; /* Makes it a circle */
+  backdrop-filter: blur(10px); /* Adds a blur effect behind the orbs */
+  z-index: 0; /* Make sure it's behind the content */
+}
+
+.orb.small {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 15%;
+}
+
+.orb.medium {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  right: 20%;
+}
+
+.orb.large {
+  width: 300px;
+  height: 300px;
+  bottom: 15%;
+  left: 40%;
+}
+
+.frosted-glass {
+  background-color: rgba(255, 255, 255, 0.3); /* White with transparency */
+  backdrop-filter: blur(15px); /* Frosted blur effect */
+  border-radius: 10px; /* Optional rounded corners */
+  padding: 20px; /* Some padding for content inside the frosted area */
+  z-index: 1; /* Make sure it's on top of the orbs */
+}
