@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,36 +23,4 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px; /* Optional rounded corners */
   padding: 20px; /* Some padding for content inside the frosted area */
   z-index: 1; /* Make sure it's on top of the orbs */
-}
-
-/* Optimized oil gradient background */
-.oil-gradient-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  background: radial-gradient(circle at 30% 30%, #85f, transparent), 
-              radial-gradient(circle at 70% 70%, #fc4, transparent), 
-              radial-gradient(circle at 50% 50%, #4cf, transparent),
-              radial-gradient(circle at 80% 20%, #ff5, transparent);
-  background-size: 200% 200%;
-  
-  filter: blur(20px) url(#ripple);  /* Reduced blur and added ripple effect */
-  animation: moveGradient 15s ease infinite;  /* Slowed down the animation for smoother effect */
-}
-
-/* Optimized background animation */
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 50% 50%;  /* Slower movement */
-  }
-  100% {
-    background-position: 0% 0%;
-  }
 }
