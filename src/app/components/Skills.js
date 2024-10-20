@@ -98,6 +98,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Back-End Technologies (Grayed Out) */}
+          {/* Node.js */}
           <div className="skill-card coming-soon">
             <img
               src="/icons/nodejs.svg"

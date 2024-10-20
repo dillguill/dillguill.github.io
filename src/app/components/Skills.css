@@ -9,16 +9,17 @@
 .skill-card {
   padding: 1.5rem; /* Equivalent to p-6 in Tailwind */
   transition: color 0.3s ease; /* Smooth transition for hover effect */
-    /* From https://css.glass */
+  /* From https://css.glass */
   background: rgba(231, 212, 195, 0.69);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(231, 221, 221, 0.5);
 }
 
 .dark .skill-card {
-        /* From https://css.glass */
+  /* From https://css.glass */
   background: rgba(34, 34, 36, 0.77);
   border: 1px solid rgba(231, 212, 195, 0.08);
 }
@@ -33,7 +34,6 @@
   margin-bottom: 1rem; /* Equivalent to mb-4 */
 }
 
-/* "Coming Soon" icons have grayscale effect */
 .coming-soon {
   filter: grayscale(100%); /* Grayscale and invert */
   opacity: 0.3; /* Faded effect for "Coming Soon" items */
