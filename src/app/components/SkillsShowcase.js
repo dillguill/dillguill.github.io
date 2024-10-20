@@ -1,4 +1,5 @@
 "use client";
+import "./SkillsSection.css";
 
 export default function SkillsShowcase() {
   return (

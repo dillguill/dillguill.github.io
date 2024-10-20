@@ -1,7 +1,6 @@
 import Hero from "./components/Hero";
 import Adventure from "./components/Adventure";
 import SkillsShowcase from "./components/SkillsShowcase";
-// import SkillsShowcase from "./components/SkillsShowcase";
 
 export default function Home() {
   return (
