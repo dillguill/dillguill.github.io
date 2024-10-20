@@ -6,7 +6,7 @@ export default function SkillsShowcase() {
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-5xl font-bold uppercase mb-16">
-          Skills & Technologies
+          Skills & Tech
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
