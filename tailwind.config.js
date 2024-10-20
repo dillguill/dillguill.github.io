@@ -14,7 +14,6 @@ module.exports = {
         "sunset-orange": "#ff5e3a",
         "neon-blue": "#00f6ff", 
         "galaxy-purple": "#8000ff",
-        "space-gray": "#1c1c1e",
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],  // For headers

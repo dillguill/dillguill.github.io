@@ -11,7 +11,7 @@ export default function SkillsShowcase() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Front-End Technologies */}
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/html.svg"
               alt="HTML Icon"
@@ -24,7 +24,7 @@ export default function SkillsShowcase() {
             <h3 className="skill-card-name">HTML</h3>
             <p>Building the structure of websites.</p>
           </div>
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/css3.svg"
               alt="CSS Icon"
@@ -37,7 +37,7 @@ export default function SkillsShowcase() {
             <h3 className="skill-card-name">CSS</h3>
             <p>Styling and layout of web pages.</p>
           </div>
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/javascript.svg"
               alt="JavaScript Icon"
@@ -52,7 +52,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* React */}
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/react.svg"  // Assuming you placed it in the icons folder
               alt="React Icon"
@@ -66,7 +66,7 @@ export default function SkillsShowcase() {
             <p>A JavaScript library for building user interfaces.</p>
           </div>
 
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/tailwind-css.svg"
               alt="Tailwind CSS Icon"
@@ -83,7 +83,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Bootstrap */}
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/bootstrap.svg"
               alt="Bootstrap Icon"
@@ -98,7 +98,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Back-End Technologies (Grayed Out) */}
-          <div className="skill-card-coming-soon" style={{ filter: 'grayscale(100%)', opacity: 0.5 }}>
+          <div className="skill-card coming-soon">
             <img
               src="/icons/nodejs.svg"
               alt="Node.js Icon"
@@ -113,7 +113,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Python */}
-          <div className="skill-card-coming-soon" style={{ filter: 'grayscale(100%)', opacity: 0.5 }}>
+          <div className="skill-card coming-soon">
             <img
               src="/icons/python.svg"
               alt="Python Icon"
@@ -128,7 +128,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Django */}
-          <div className="skill-card-coming-soon" style={{ filter: 'grayscale(100%)', opacity: 0.5 }}>
+          <div className="skill-card coming-soon">
             <img
               src="/icons/django.svg"
               alt="Django Icon"
@@ -143,7 +143,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Docker */}
-          <div className="skill-card-coming-soon" style={{ filter: 'grayscale(100%)', opacity: 0.5 }}>
+          <div className="skill-card coming-soon">
             <img
               src="/icons/docker.svg"
               alt="Docker Icon"
@@ -158,7 +158,7 @@ export default function SkillsShowcase() {
           </div>
 
           {/* Git */}
-          <div className="skill-card">
+          <div className="skill-card dark">
             <img
               src="/icons/git.svg"
               alt="Git Icon"
