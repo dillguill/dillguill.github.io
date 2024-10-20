@@ -6,6 +6,17 @@ html {
   scroll-behavior: smooth;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* Apply the font globally */
+body {
+  font-family: 'Space Mono', monospace; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Headers will use Montserrat */
+}
+
 .frosted-glass {
   background-color: rgba(255, 255, 255, 0.3); /* White with transparency */
   backdrop-filter: blur(15px); /* Frosted blur effect */
@@ -76,7 +87,7 @@ html {
 
 /* Common class for progress bar fills */
 .progress-bar-fill {
-  background-color: #fbbf24; /* Equivalent to bg-yellow-500 */
+  background-color: #f5f5f5; /* Equivalent to bg-yellow-500 */
   height: 0.25rem; /* Equivalent to h-1 */
   border-radius: 0.5rem; /* Equivalent to rounded-lg */
 }
