@@ -6,39 +6,77 @@ html {
   scroll-behavior: smooth;
 }
 
-.orb {
-  position: absolute;
-  background-color: rgba(255, 94, 58, 0.6); /* Sunset orange with transparency */
-  border-radius: 50%; /* Makes it a circle */
-  backdrop-filter: blur(10px); /* Adds a blur effect behind the orbs */
-  z-index: 0; /* Make sure it's behind the content */
-}
-
-.orb.small {
-  width: 100px;
-  height: 100px;
-  top: 20%;
-  left: 15%;
-}
-
-.orb.medium {
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  right: 20%;
-}
-
-.orb.large {
-  width: 300px;
-  height: 300px;
-  bottom: 15%;
-  left: 40%;
-}
-
 .frosted-glass {
   background-color: rgba(255, 255, 255, 0.3); /* White with transparency */
   backdrop-filter: blur(15px); /* Frosted blur effect */
   border-radius: 10px; /* Optional rounded corners */
   padding: 20px; /* Some padding for content inside the frosted area */
   z-index: 1; /* Make sure it's on top of the orbs */
+}
+
+/* Common class for skill icons */
+.skill-icon {
+  margin: 0 auto;
+  width: 4rem; /* Equivalent to w-16 in Tailwind */
+  height: 4rem; /* Equivalent to h-16 in Tailwind */
+  margin-bottom: 1rem; /* Equivalent to mb-4 */
+  transition: filter 2000ms ease;
+}
+
+.dark .skill-icon {
+  filter: invert(1);
+}
+
+.skill-card-name {
+  font-size: 1.5rem;    /* Equivalent to text-2xl in Tailwind */
+  font-weight: 600;     /* Equivalent to font-semibold */
+  margin-bottom: 1rem;  /* Equivalent to mb-4 */
+}
+
+/* "Coming Soon" icons have grayscale effect */
+.skill-icon-coming-soon {
+  margin: 0 auto;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  filter: grayscale(100%) invert(1); /* Grayscale and invert */
+  opacity: 0.5; /* Faded effect for "Coming Soon" items */
+}
+
+/* Common class for skill cards */
+.skill-card {
+  padding: 1.5rem; /* Equivalent to p-6 in Tailwind */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.skill-card:hover {
+  color: #fbbf24; /* Equivalent to text-yellow-500 */
+}
+
+/* Separate class for "Coming Soon" skill cards with grayscale effect */
+.skill-card-coming-soon {
+  padding: 1.5rem;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card-coming-soon:hover {
+  opacity: 0.7; /* Slightly less opacity on hover */
+}
+
+/* Common class for progress bar containers */
+.progress-bar {
+  width: 100%;
+  background-color: #374151; /* Equivalent to bg-gray-700 */
+  height: 0.25rem; /* Equivalent to h-1 */
+  margin-bottom: 1rem; /* Equivalent to mb-4 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+}
+
+/* Common class for progress bar fills */
+.progress-bar-fill {
+  background-color: #fbbf24; /* Equivalent to bg-yellow-500 */
+  height: 0.25rem; /* Equivalent to h-1 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
 }
