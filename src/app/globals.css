@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* Apply the font globally */
+body {
+  font-family: 'Space Mono', monospace; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Headers will use Montserrat */
+}
+
+.frosted-glass {
+  background-color: rgba(255, 255, 255, 0.3); /* White with transparency */
+  backdrop-filter: blur(15px); /* Frosted blur effect */
+  border-radius: 10px; /* Optional rounded corners */
+  padding: 20px; /* Some padding for content inside the frosted area */
+  z-index: 1; /* Make sure it's on top of the orbs */
+}

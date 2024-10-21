@@ -1,14 +1,25 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class", // Enable dark mode based on a class toggle
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'neumorphic': '10px 10px 20px #0d0d0d, -10px -10px 20px #1a1a1a',
-        'neumorphic-inset': 'inset 10px 10px 20px #0d0d0d, inset -10px -10px 20px #1a1a1a',
+      colors: {
+        beige: "#dec4ad",
+        "space-gray": "#1c1c1e",
+        "sunset-orange": "#ff5e3a",
+        "neon-blue": "#00f6ff", 
+        "galaxy-purple": "#8000ff",
       },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],  // For headers
+        mono: ['Space Mono', 'monospace'],   // For paragraphs and body      },
+      }
     },
   },
   plugins: [],
-}
+};
