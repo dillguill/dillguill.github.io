@@ -96,7 +96,7 @@ export default function initBlobAnimation() {
   };
 
   // lavalamp constructor
-  var LavaLamp = function(width, height, numBalls, c0, c1) {
+  var LavaLamp = function(width, height, numBalls, c0, c1, c2, c3) {
     this.step = 5;
     this.width = width;
     this.height = height;
@@ -104,7 +104,7 @@ export default function initBlobAnimation() {
     this.sx = Math.floor(this.width / this.step);
     this.sy = Math.floor(this.height / this.step);
     this.paint = false;
-    this.metaFill = createRadialGradient(width, height, width, c0, c1);
+    this.metaFill = createRadialGradient(width, height, width, c0, c1, c2, c3);
     this.plx = [0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0];
     this.ply = [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1];
     this.mscases = [0, 3, 0, 3, 1, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0];
@@ -237,13 +237,16 @@ export default function initBlobAnimation() {
   };
 
   // gradients
-  var createRadialGradient = function(w, h, r, c0, c1) {
+  var createRadialGradient = function(w, h, r, c0, c1, c2, c3) {
     var gradient = ctx.createRadialGradient(
       w / 1, h / 1, 0,
       w / 1, h / 1, r
     );
     gradient.addColorStop(0, c0);
-    gradient.addColorStop(1, c1);
+    gradient.addColorStop(0.5, c1);
+    gradient.addColorStop(0.75, c2);
+    gradient.addColorStop(1, c3);
+
     return gradient;
   };
 
@@ -258,7 +261,7 @@ export default function initBlobAnimation() {
       ctx = screen.ctx;
   screen.resize();
   // create LavaLamps
-  lava0 = new LavaLamp(screen.width, screen.height, 6, "#FF9298", "#E4008E");
+  lava0 = new LavaLamp(screen.width, screen.height, 6, '#fcdd9f', '#f5852a', '#f51800', '#750101');
 
   run();
 
