@@ -286,38 +286,66 @@ export default function initBlobAnimation() {
       }
     };
 
-    // gradients
-    var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
-      var gradient = ctx.createRadialGradient(w / 1, h / 1, 0, w / 1, h / 1, r);
-      gradient.addColorStop(0, c0);
-      gradient.addColorStop(0.5, c1);
-      gradient.addColorStop(0.75, c2);
-      gradient.addColorStop(1, c3);
+    // Function to detect dark or light mode
+function isDarkMode() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
 
-      return gradient;
-    };
+// Define color schemes for light mode and dark mode
+const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#750101"]; // Light mode colors
+const darkModeColors = ["#18d7f0", "#0074D9", "#5602ab", "#001f3f"];   // Dark mode colors
 
-    // main loop
-    var run = function () {
-      requestAnimationFrame(run);
-      ctx.clearRect(0, 0, screen.width, screen.height);
-      lava0.renderMetaballs();
-    };
-    // canvas
-    var screen = ge1doot.screen.init("bubble", null, true),
-      ctx = screen.ctx;
-    screen.resize();
-    // create LavaLamps
-    lava0 = new LavaLamp(
-      screen.width,
-      screen.height,
-      6,
-      "#fcdd9f",
-      "#f5852a",
-      "#f51800",
-      "#750101"
-    );
+// Function to create the gradient with chosen colors
+var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
+  var gradient = ctx.createRadialGradient(w / 1, h / 1, 0, w / 1, h / 1, r);
+  gradient.addColorStop(0, c0);
+  gradient.addColorStop(0.5, c1);
+  gradient.addColorStop(0.75, c2);
+  gradient.addColorStop(1, c3);
+  return gradient;
+};
 
-    run();
+// Function to initialize the LavaLamp with the selected color scheme
+function initializeLavaLamp() {
+  // Choose colors based on the user's current theme (dark or light)
+  const colors = isDarkMode() ? darkModeColors : lightModeColors;
+
+  // Create LavaLamps with the chosen color scheme
+  lava0 = new LavaLamp(
+    screen.width,
+    screen.height,
+    6,
+    colors[0], // First color
+    colors[1], // Second color
+    colors[2], // Third color
+    colors[3]  // Fourth color
+  );
+}
+
+// Main animation loop
+var run = function () {
+  requestAnimationFrame(run);
+  ctx.clearRect(0, 0, screen.width, screen.height);
+  lava0.renderMetaballs();
+};
+
+// Canvas setup
+var screen = ge1doot.screen.init("bubble", null, true),
+    ctx = screen.ctx;
+screen.resize();
+
+// Initialize LavaLamp with the current theme
+initializeLavaLamp();
+
+// Start the main animation loop
+run();
+
+// Event listener to detect theme change and re-initialize the LavaLamp with new colors
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  const newColorScheme = e.matches ? 'dark' : 'light';
+
+  // Re-initialize the blobs with the new color scheme
+  initializeLavaLamp();
+});
   })();
 }
