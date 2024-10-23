@@ -1,5 +1,7 @@
 import "./globals.css";
+import './blob.css';  
 import { Roboto } from 'next/font/google';
+import BlobBackground from './components/BlobBackground';
 
 export const metadata = {
   title: "Create Next App",
@@ -7,17 +9,19 @@ export const metadata = {
 };
 
 const roboto = Roboto({
-  weight: ['400', '500', '700'], // You can add more or fewer weights depending on your design
-  subsets: ['latin'], // Choose the subset that matches your needs
-  display: 'swap', // Optional: ensures fonts display fallback content while loading
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
 });
 
-
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
       <body>
-        {children}
+        <BlobBackground /> {/* Background blob stays behind */}
+        <main className="relative z-10"> {/* Page content */}
+          {children}  {/* This renders the content of page.js */}
+        </main>
       </body>
     </html>
   );
