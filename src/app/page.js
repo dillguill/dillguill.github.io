@@ -1,15 +1,17 @@
+// app/page.js
 import { HomeIcon } from '@heroicons/react/24/solid';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center">
+      {/* Wrapper for content */}
       <div className="flex items-center space-x-3">
         <HomeIcon className="h-6 w-6 fill-slate-400" />
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-4xl font-bold text-white">
           Welcome to My Developer Portfolio
         </h1>
       </div>
-      <p className="mt-4 text-lg">
+      <p className="mt-4 text-lg text-white">
         This is styled with Tailwind and uses the Roboto font from Google Fonts.
       </p>
     </div>
