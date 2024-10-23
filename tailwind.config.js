@@ -11,6 +11,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        spaceGrotesk: ['Space Grotesk', 'sans-serif'], // Custom heading font
+        spaceMono: ['Space Mono', 'monospace'],        // Custom body font
+      },
     },
   },
   plugins: [],
