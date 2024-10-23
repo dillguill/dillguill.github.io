@@ -65,7 +65,7 @@ export default function initBlobAnimation() {
       parent.width * 0.2 + Math.random() * parent.width * 0.6,
       parent.height * 0.2 + Math.random() * parent.height * 0.6
     );
-    this.size = (parent.wh / 15) + ( Math.random() * (max - min) + min ) * (parent.wh / 15);
+    this.size = (parent.wh / 10) + ( Math.random() * (max - min) + min ) * (parent.wh / 10);
     this.width = parent.width;
     this.height = parent.height;
   };
