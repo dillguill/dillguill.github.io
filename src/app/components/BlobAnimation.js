@@ -293,7 +293,7 @@ function isDarkMode() {
 
 // Define color schemes for light mode and dark mode
 const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#750101"]; // Light mode colors
-const darkModeColors = ["#18d7f0", "#0074D9", "#5602ab", "#001f3f"];   // Dark mode colors
+const darkModeColors = ["#18d7f0", "#0074D9", "#020de0", "#5602ab"];   // Dark mode colors
 
 // Function to create the gradient with chosen colors
 var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
