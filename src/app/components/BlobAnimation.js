@@ -286,66 +286,84 @@ export default function initBlobAnimation() {
       }
     };
 
+    // Function to resize the canvas based on the window size
+    function resizeCanvas() {
+      screen.width = window.innerWidth;
+      screen.height = window.innerHeight;
+      screen.elem.width = screen.width;
+      screen.elem.height = screen.height;
+      screen.resize(); // Call the resize method to adjust the context
+    }
+
     // Function to detect dark or light mode
-function isDarkMode() {
-  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-}
+    function isDarkMode() {
+      return (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
 
-// Define color schemes for light mode and dark mode
-const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#750101"]; // Light mode colors
-const darkModeColors = ["#18d7f0", "#0074D9", "#020de0", "#5602ab"];   // Dark mode colors
+    // Define color schemes for light mode and dark mode
+    const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#750101"]; // Light mode colors
+    const darkModeColors = ["#18d7f0", "#0074D9", "#020de0", "#5602ab"]; // Dark mode colors
 
-// Function to create the gradient with chosen colors
-var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
-  var gradient = ctx.createRadialGradient(w / 1, h / 1, 0, w / 1, h / 1, r);
-  gradient.addColorStop(0, c0);
-  gradient.addColorStop(0.5, c1);
-  gradient.addColorStop(0.75, c2);
-  gradient.addColorStop(1, c3);
-  return gradient;
-};
+    // Function to create the gradient with chosen colors
+    var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
+      var gradient = ctx.createRadialGradient(w / 1, h / 1, 0, w / 1, h / 1, r);
+      gradient.addColorStop(0, c0);
+      gradient.addColorStop(0.5, c1);
+      gradient.addColorStop(0.75, c2);
+      gradient.addColorStop(1, c3);
+      return gradient;
+    };
 
-// Function to initialize the LavaLamp with the selected color scheme
-function initializeLavaLamp() {
-  // Choose colors based on the user's current theme (dark or light)
-  const colors = isDarkMode() ? darkModeColors : lightModeColors;
+    // Function to initialize the LavaLamp with the selected color scheme
+    function initializeLavaLamp() {
+      // Choose colors based on the user's current theme (dark or light)
+      const colors = isDarkMode() ? darkModeColors : lightModeColors;
 
-  // Create LavaLamps with the chosen color scheme
-  lava0 = new LavaLamp(
-    screen.width,
-    screen.height,
-    6,
-    colors[0], // First color
-    colors[1], // Second color
-    colors[2], // Third color
-    colors[3]  // Fourth color
-  );
-}
+      // Create LavaLamps with the chosen color scheme
+      lava0 = new LavaLamp(
+        screen.width,
+        screen.height,
+        6,
+        colors[0], // First color
+        colors[1], // Second color
+        colors[2], // Third color
+        colors[3] // Fourth color
+      );
+    }
 
-// Main animation loop
-var run = function () {
-  requestAnimationFrame(run);
-  ctx.clearRect(0, 0, screen.width, screen.height);
-  lava0.renderMetaballs();
-};
+    // Main animation loop
+    var run = function () {
+      requestAnimationFrame(run);
+      ctx.clearRect(0, 0, screen.width, screen.height);
+      lava0.renderMetaballs();
+    };
 
-// Canvas setup
-var screen = ge1doot.screen.init("bubble", null, true),
-    ctx = screen.ctx;
-screen.resize();
+    // Canvas setup
+    var screen = ge1doot.screen.init("bubble", null, true),
+      ctx = screen.ctx;
+    // Resize the canvas initially to fill the entire window
+    resizeCanvas();
 
-// Initialize LavaLamp with the current theme
-initializeLavaLamp();
+    // Initialize the LavaLamp with the current theme
+    initializeLavaLamp();
 
-// Start the main animation loop
-run();
+    // Start the main animation loop
+    run();
 
-// Event listener to detect theme change and re-initialize the LavaLamp with new colors
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-  const newColorScheme = e.matches ? 'dark' : 'light';
+    // Event listener for window resizing to adjust the canvas size dynamically
+    window.addEventListener("resize", resizeCanvas);
 
-  // Re-initialize the blobs with the new color scheme
-  initializeLavaLamp();
-});
+    // Event listener to detect theme change and re-initialize the LavaLamp with new colors
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const newColorScheme = e.matches ? "dark" : "light";
+
+        // Re-initialize the blobs with the new color scheme
+        initializeLavaLamp();
+      });
   })();
 }
