@@ -73,7 +73,7 @@ export default function initBlobAnimation() {
     
       this.vel = new Point(
         (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25),
-        (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
+        (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random()* 0.5)
       );
       this.pos = new Point(
         parent.width * 0.2 + Math.random() * parent.width * 0.6,

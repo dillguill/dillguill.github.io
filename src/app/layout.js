@@ -1,6 +1,7 @@
 import "./globals.css";
 import './blob.css';  
 import BlobBackground from './components/BlobBackground';
+import Navbar from "./components/Navbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
     <html lang="en">
       <body>
         <BlobBackground /> {/* Background blob stays behind */}
+        <Navbar />
         <div className="glass-overlay"></div>
         <main className="relative z-20"> {/* Page content */}
           {children}  {/* This renders the content of page.js */}

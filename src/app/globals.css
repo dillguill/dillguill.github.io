@@ -9,23 +9,35 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1c1917;
+    --background: #000000;
     --foreground: #ffd9b5;
   }
 }
 
 /* Custom font classes */
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-spaceGrotesk; /* Apply Space Grotesk to all headings */
   }
-  
+
   body {
     @apply font-spaceMono; /* Make sure this uses Space Mono */
     color: var(--foreground);
     background: var(--background);
-    font-family: 'Space Mono', monospace; /* Fallback to ensure it's applied */
+    font-family: "Space Mono", monospace; /* Fallback to ensure it's applied */
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* styles/glass.css */
@@ -36,8 +48,7 @@
   right: 0;
   bottom: 0;
   z-index: 10;
-  
+
   backdrop-filter: blur(20px); /* Apply the blur effect */
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
-  
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
 }
