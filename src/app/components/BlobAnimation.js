@@ -67,6 +67,10 @@ export default function initBlobAnimation() {
     var Ball = function (parent) {
       var min = 0.1;
       var max = 1.5;
+    
+      // Adjust size for smaller screens
+      var sizeDivisor = window.innerWidth < 800 ? 10 : 10;
+    
       this.vel = new Point(
         (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25),
         (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
@@ -75,8 +79,9 @@ export default function initBlobAnimation() {
         parent.width * 0.2 + Math.random() * parent.width * 0.6,
         parent.height * 0.2 + Math.random() * parent.height * 0.6
       );
-      this.size =
-        parent.wh / 10 + (Math.random() * (max - min) + min) * (parent.wh / 10);
+    
+      // Dynamic blob size adjustment
+      this.size = parent.wh / sizeDivisor + (Math.random() * (max - min) + min) * (parent.wh / sizeDivisor);
       this.width = parent.width;
       this.height = parent.height;
     };
@@ -106,7 +111,7 @@ export default function initBlobAnimation() {
 
     // lavalamp constructor
     var LavaLamp = function (width, height, numBalls, c0, c1, c2, c3) {
-      this.step = 5;
+      this.step = 3;
       this.width = width;
       this.height = height;
       this.wh = Math.min(width, height);
@@ -304,8 +309,8 @@ export default function initBlobAnimation() {
     }
 
     // Define color schemes for light mode and dark mode
-    const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#750101"]; // Light mode colors
-    const darkModeColors = ["#18d7f0", "#0074D9", "#020de0", "#5602ab"]; // Dark mode colors
+    const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#a31202"]; // Light mode colors
+    const darkModeColors = ["#18d7f0", "#0074D9", "#020de0", "#5702e0"]; // Dark mode colors
 
     // Function to create the gradient with chosen colors
     var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
