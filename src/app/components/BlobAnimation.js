@@ -69,7 +69,7 @@ export default function initBlobAnimation() {
       var max = 1.5;
     
       // Adjust size for smaller screens
-      var sizeDivisor = window.innerWidth < 800 ? 10 : 10;
+      var sizeDivisor = window.innerWidth < 800 ? 12 : 10;
     
       this.vel = new Point(
         (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25),
