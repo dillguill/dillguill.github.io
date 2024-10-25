@@ -309,14 +309,14 @@ export default function initBlobAnimation() {
     }
 
     // Define color schemes for light mode and dark mode
-    const lightModeColors = ["#fcdd9f", "#f5852a", "#f51800", "#a31202"]; // Light mode colors
-    const darkModeColors = ["#18d7f0", "#0074D9", "#020de0", "#5702e0"]; // Dark mode colors
+    const lightModeColors = ["#FFB600", "#FF9800", "#FF4000", "#FF1300"]; // Light mode colors
+    const darkModeColors = ["#C900FF", "#0080FF", "#0030FF", "#2101FF"]; // Dark mode colors
 
     // Function to create the gradient with chosen colors
     var createRadialGradient = function (w, h, r, c0, c1, c2, c3) {
       var gradient = ctx.createRadialGradient(w / 1, h / 1, 0, w / 1, h / 1, r);
       gradient.addColorStop(0, c0);
-      gradient.addColorStop(0.5, c1);
+      gradient.addColorStop(0.25, c1);
       gradient.addColorStop(0.75, c2);
       gradient.addColorStop(1, c3);
       return gradient;
