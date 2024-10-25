@@ -13,7 +13,7 @@ export default function Home() {
 <section id="about" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-10">
   <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
   <p className="max-w-lg text-sm md:text-lg text-center">
-    I&#39m a web developer with a passion for building beautiful, functional web applications.
+    I&#39;m a web developer with a passion for building beautiful, functional web applications.
     I have experience in front-end and back-end technologies, and I love working on exciting, dynamic projects.
   </p>
 </section>
