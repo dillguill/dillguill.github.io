@@ -27,11 +27,11 @@ export default function Example() {
           <h2 className="text-pretty text-4xl font-semibold tracking-tight sm:text-5xl">Projects</h2>
           <p className="mt-2 text-lg/8">Anim aute id magna aliqua ad ad non deserunt sunt.</p>
         </div>
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-stone-800 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-stone-800 dark:border-stone-300 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
             <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
               <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime={post.datetime} className="text-stone-200">
+                <time dateTime={post.datetime} className="">
                   {post.date}
                 </time>
                 <a
@@ -59,7 +59,7 @@ export default function Example() {
                       {post.author.name}
                     </a>
                   </p>
-                  <p className="text-stone-200">{post.author.role}</p>
+                  <p className="">{post.author.role}</p>
                 </div>
               </div>
             </article>
