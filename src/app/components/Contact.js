@@ -22,7 +22,7 @@ export default function Example() {
   const [agreed, setAgreed] = useState(false)
 
   return (
-    <div className="isolate sm:py-32 lg:px-8">
+    <div className="isolate px-6 py-24 sm:py-32 lg:px-8 block">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">Contact</h2>
         <p className="mt-2 text-lg/8">Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
