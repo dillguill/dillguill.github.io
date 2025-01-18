@@ -1,0 +1,31 @@
+/* Define CSS variables for light mode */
+:root {
+    --background-color: #f5f5f5;
+    --text-color: #000000;
+}
+
+/* Define CSS variables for dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333333;
+        --text-color: #ffffff;
+    }
+}
+
+/* Apply the variables to your site's elements */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Additional styling */
+header, footer {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--text-color);
+}
+
+/* Add more styles as needed */
