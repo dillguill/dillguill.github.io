@@ -6,34 +6,50 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars2Icon, XMarkIcon, SunIcon, MoonIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography as="li" variant="small" className="p-1 font-medium">
-        <a href="/" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+        <Link
+          to="/"
+          className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1"
+        >
           Home
-        </a>
+        </Link>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-medium">
-        <a href="/about" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+        <Link
+          to="/about"
+          className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1"
+        >
           About
-        </a>
+        </Link>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-medium">
-        <a href="/projects" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+        <Link
+          to="/projects"
+          className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1"
+        >
           Projects
-        </a>
+        </Link>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-medium">
-        <a href="/resume" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+        <Link
+          to="/resume"
+          className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1"
+        >
           Resume
-        </a>
+        </Link>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-medium">
-        <a href="/contact" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+        <Link
+          to="/contact"
+          className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1"
+        >
           Contact
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
