@@ -6,7 +6,7 @@ const Resume = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Resume</h2>
 
-        <div className="bg-slate-50 dark:bg-slate-700 shadow-xl rounded-xl p-6">
+        <div className="shadow-xl rounded-xl p-6">
           <h3 className="text-xl font-bold mb-4">Professional Experience</h3>
           <ul className="list-disc list-inside">
             <li className="mb-2">
@@ -20,7 +20,7 @@ const Resume = () => {
           </ul>
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-700 shadow-xl rounded-xl p-6 mt-6">
+        <div className="shadow-xl rounded-xl p-6 mt-6">
           <h3 className="text-xl font-bold mb-4">Education</h3>
           <ul className="list-disc list-inside">
             <li className="mb-2">
@@ -30,7 +30,7 @@ const Resume = () => {
           </ul>
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-700 shadow-xl rounded-xl p-6 mt-6">
+        <div className="shadow-xl rounded-xl p-6 mt-6">
           <h3 className="text-xl font-bold mb-4">Skills</h3>
           <ul className="list-disc list-inside">
             <li className="mb-2">Skill 1</li>
@@ -39,7 +39,7 @@ const Resume = () => {
           </ul>
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-700 shadow-xl rounded-xl p-6 mt-6 text-center">
+        <div className="shadow-xl rounded-xl p-6 mt-6 text-center">
           <a
             href="/path-to-resume.pdf"
             download
