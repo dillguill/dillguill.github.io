@@ -5,7 +5,7 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function NavList() {
   return (
@@ -65,13 +65,13 @@ export function NavbarSimple() {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-6 py-3 bg-transparent">
+    <Navbar className="my-4 mx-auto max-w-screen-xxl px-6 py-3 bg-transparent">
       <div className="flex items-center justify-between">
         <Typography
           as="a"
           href="/"
           variant="h6"
-          className="mr-4 cursor-pointer py-1.5"
+          className="mr-4 cursor-pointer py-1.5 text-gray-900 dark:text-gray-100"
         >
           Portfolio
         </Typography>
@@ -87,7 +87,7 @@ export function NavbarSimple() {
           {openNav ? (
             <XMarkIcon className="h-6 w-6 text-gray-900 dark:text-gray-100" strokeWidth={2} />
           ) : (
-            <Bars3Icon className="h-6 w-6 text-gray-900 dark:text-gray-100" strokeWidth={2} />
+            <Bars2Icon className="h-6 w-6 text-gray-900 dark:text-gray-100" strokeWidth={2} />
           )}
         </IconButton>
       </div>
