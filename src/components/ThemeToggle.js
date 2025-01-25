@@ -8,15 +8,34 @@ export function ThemeToggle() {
     return savedTheme || "auto";
   });
 
+  const currentColor = React.useMemo(() => {
+    if (theme === "auto") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches 
+        ? "#333333" 
+        : "#f5f5f5";
+    }
+    return theme === "dark" ? "#333333" : "#f5f5f5";
+  }, [theme]);
+
   React.useEffect(() => {
     const root = document.documentElement;
-    const actualTheme = theme === "auto"
-      ? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-      : theme;
-
-    root.classList.toggle("dark", actualTheme === "dark");
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    
+    if (theme === "auto") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handler = (e) => {
+        root.classList.toggle("dark", e.matches);
+        metaThemeColor.content = e.matches ? "#333333" : "#f5f5f5";
+      };
+      mediaQuery.addListener(handler);
+      return () => mediaQuery.removeListener(handler);
+    } else {
+      root.classList.toggle("dark", theme === "dark");
+      metaThemeColor.content = currentColor;
+    }
+    
     localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, [theme, currentColor]);
 
   const toggleTheme = () => {
     setTheme(prev => {
@@ -31,7 +50,8 @@ export function ThemeToggle() {
       <Helmet>
         <meta 
           name="theme-color" 
-          content={theme.startsWith("dark") ? "#333333" : "#f5f5f5"} 
+          content={currentColor} 
+          data-react-helmet="true" 
         />
       </Helmet>
 
