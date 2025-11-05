@@ -1,95 +1,39 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
-  Navbar,
-  Collapse,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
-import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
-import { ThemeToggle } from "./ThemeToggle";
+  HomeIcon,
+  BriefcaseIcon,
+  FolderIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 
-function NavList() {
+function NavItem({ to, label, Icon, isActive }) {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" variant="medium" className="p-1">
-        <Link to="/" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          Home
-        </Link>
-      </Typography>
-      <Typography as="li" variant="medium" className="p-1">
-        <Link to="/work" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          Work
-        </Link>
-      </Typography>
-      <Typography as="li" variant="medium" className="p-1">
-        <Link to="/projects" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          Projects
-        </Link>
-      </Typography>
-      <Typography as="li" variant="medium" className="p-1">
-        <Link to="/about" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          About
-        </Link>
-      </Typography>
-      {/* <Typography as="li" variant="medium" className="p-1">
-        <Link to="/contact" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          Contact
-        </Link>
-      </Typography> */}
-    </ul>
+    <Link
+      to={to}
+      className={`flex flex-col items-center justify-center px-4 py-2 rounded-full transition-colors ${
+        isActive
+          ? "text-blue-600 dark:text-blue-400"
+          : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+      }`}
+      aria-label={label}
+    >
+      <Icon className="h-6 w-6" />
+    </Link>
   );
 }
 
 export function NavbarSimple() {
-  const [openNav, setOpenNav] = React.useState(false);
-
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
-
-  React.useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
+  const location = useLocation();
 
   return (
-    <Navbar className="my-4 mx-auto max-w-screen-xxl px-6 py-3 bg-transparent">
-      <div className="flex items-center justify-between">
-        <Typography 
-          as="a" 
-          href="/" 
-          variant="medium" 
-          className="mr-4 cursor-pointer py-1.5"
-          style={{ color: 'var(--text-color)' }}
-        >
-          Dillon Guillory
-        </Typography>
-        <div className="hidden lg:flex lg:items-center lg:gap-4">
-          <NavList />
-          <ThemeToggle />
-        </div>
-        <div className="flex items-center lg:hidden">
-          <ThemeToggle />
-          <IconButton
-            variant="text"
-            className="ml-2 h-6 w-6"
-            ripple={false}
-            onClick={() => setOpenNav(!openNav)}
-          >
-            {openNav ? (
-              <XMarkIcon className="h-6 w-6" style={{ color: 'var(--text-color)' }} strokeWidth={2} />
-            ) : (
-              <Bars2Icon className="h-6 w-6" style={{ color: 'var(--text-color)' }} strokeWidth={2} />
-            )}
-          </IconButton>
-        </div>
+    <nav className="fixed bottom-4 left-0 right-0 z-50 flex justify-center">
+      <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-lg ring-1 ring-black/5 dark:ring-white/10 px-2 py-2">
+        <NavItem to="/" label="Home" Icon={HomeIcon} isActive={location.pathname === "/"} />
+        <NavItem to="/work" label="Work" Icon={BriefcaseIcon} isActive={location.pathname === "/work"} />
+        <NavItem to="/projects" label="Projects" Icon={FolderIcon} isActive={location.pathname === "/projects"} />
+        <NavItem to="/about" label="About" Icon={UserIcon} isActive={location.pathname === "/about"} />
       </div>
-      <Collapse open={openNav}>
-        <NavList />
-      </Collapse>
-    </Navbar>
+    </nav>
   );
 }

@@ -16,15 +16,16 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {repos.map(repo => (
             <div key={repo.id} className="shadow-xl rounded-xl p-6 bg-transparent border border-gray-100">
-              <h3 className="text-2xl font-bold mb-2">{repo.name}</h3>
-              <p>{repo.description || 'No description provided.'}</p>
+              {/* <h3 className="text-2xl font-bold mb-2">{repo.name}</h3> */}
+              <h3 className="text-xl font-bold mb-2">{repo.description || 'No description provided.'}</h3>
+              <p>{repo.topics}</p>
               <a
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" font-bold hover:underline mt-2 block"
               >
-                View Repository
+                GitHub
               </a>
             </div>
           ))}
