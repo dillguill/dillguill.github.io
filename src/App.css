@@ -1,28 +1,42 @@
 :root {
-    --background-color: #f5f5f5;
-    --text-color: #333333;
-  }
-  
-  .dark {
-    --background-color: #333333;
-    --text-color: #f5f5f5;
-  }
-  
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) 
-             env(safe-area-inset-bottom) env(safe-area-inset-left);
-    min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-/* Additional styling */
-header, footer {
-    background-color: var(--background-color);
-    color: var(--text-color);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
 }
 
-a {
-    color: var(--text-color);
+.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
+  --accent-color: #60a5fa;
+  --accent-hover: #3b82f6;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) 
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header, footer {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+a:not([style*="color"]) {
+  color: var(--accent-color);
+  transition: color 0.2s ease;
+}
+
+a:not([style*="color"]):hover {
+  color: var(--accent-hover);
 }
