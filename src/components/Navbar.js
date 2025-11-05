@@ -12,31 +12,31 @@ import { ThemeToggle } from "./ThemeToggle";
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" variant="small" className="p-1 font-medium">
+      <Typography as="li" variant="medium" className="p-1">
         <Link to="/" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
           Home
         </Link>
       </Typography>
-      <Typography as="li" variant="small" className="p-1 font-medium">
-        <Link to="/about" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          About
+      <Typography as="li" variant="medium" className="p-1">
+        <Link to="/work" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+          Work
         </Link>
       </Typography>
-      <Typography as="li" variant="small" className="p-1 font-medium">
+      <Typography as="li" variant="medium" className="p-1">
         <Link to="/projects" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
           Projects
         </Link>
       </Typography>
-      <Typography as="li" variant="small" className="p-1 font-medium">
-        <Link to="/resume" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
-          Resume
+      <Typography as="li" variant="medium" className="p-1">
+        <Link to="/about" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
+          About
         </Link>
       </Typography>
-      <Typography as="li" variant="small" className="p-1 font-medium">
+      {/* <Typography as="li" variant="medium" className="p-1">
         <Link to="/contact" className="flex items-center transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1">
           Contact
         </Link>
-      </Typography>
+      </Typography> */}
     </ul>
   );
 }
@@ -61,11 +61,11 @@ export function NavbarSimple() {
         <Typography 
           as="a" 
           href="/" 
-          variant="h6" 
+          variant="medium" 
           className="mr-4 cursor-pointer py-1.5"
           style={{ color: 'var(--text-color)' }}
         >
-          Portfolio
+          Dillon Guillory
         </Typography>
         <div className="hidden lg:flex lg:items-center lg:gap-4">
           <NavList />
