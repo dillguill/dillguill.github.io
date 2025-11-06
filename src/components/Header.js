@@ -107,7 +107,7 @@ export default function Header() {
               onClick={() => {
                 setDarkMode(!darkMode);
               }}
-              className="p-2 rounded-full transition-colors duration-300 hover:opacity-70"
+              className="p-2 rounded-full transition-colors duration-300"
               aria-label={
                 darkMode ? "Switch to light mode" : "Switch to dark mode"
               }
