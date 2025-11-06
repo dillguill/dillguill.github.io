@@ -30,12 +30,9 @@ const SocialLinks = () => {
   ];
 
   return (
-    <section id="social-links" className="py-12 min-h-screen" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+    <section id="socials" className="py-12 min-h-screen pt-24">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8 text-center" style={{ color: 'var(--text-primary)' }}>
-            Social Links
-          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {socialLinks.map((link) => {
               const Icon = link.icon;
@@ -47,7 +44,6 @@ const SocialLinks = () => {
                   rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="flex items-center gap-4 p-6 rounded-lg transition-all duration-200 hover:opacity-70 border"
                   style={{
-                    backgroundColor: 'var(--bg-secondary)',
                     borderColor: 'var(--border-color)',
                     color: 'var(--text-primary)'
                   }}

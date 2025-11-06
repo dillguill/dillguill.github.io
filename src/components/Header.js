@@ -80,7 +80,7 @@ export default function Header() {
           data-react-helmet="true" 
         />
       </Helmet>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 backdrop-blur-md" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', opacity: 0.95 }}>
+      <header className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 backdrop-blur-md" style={{ color: 'var(--text-primary)' }}>
         <div className="mx-auto max-w-screen-xxl px-6 py-3 flex items-center justify-between">
           <nav>
             <ul className="flex items-center space-x-2 text-sm sm:text-base">

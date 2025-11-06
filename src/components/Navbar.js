@@ -31,16 +31,14 @@ export function NavbarSimple() {
       <div 
         className="flex items-center gap-1 rounded-full backdrop-blur shadow-lg px-2 py-2"
         style={{ 
-          backgroundColor: 'var(--bg-primary)', 
-          border: '1px solid var(--border-color)',
-          opacity: 0.9
+          border: '1px solid var(--border-color)'
         }}
       >
         <NavItem to="/" label="Home" Icon={FaHome} isActive={location.pathname === "/"} />
         <NavItem to="/work" label="Work" Icon={FaBriefcase} isActive={location.pathname === "/work"} />
         <NavItem to="/projects" label="Projects" Icon={FaFolder} isActive={location.pathname === "/projects"} />
         <NavItem to="/about" label="About" Icon={FaUser} isActive={location.pathname === "/about"} />
-        <NavItem to="/social-links" label="Social Links" Icon={FaLink} isActive={location.pathname === "/social-links"} />
+        <NavItem to="/socials" label="Socials" Icon={FaLink} isActive={location.pathname === "/socials"} />
       </div>
     </nav>
   );

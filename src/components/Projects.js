@@ -11,7 +11,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-12" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+    <section id="projects" className="py-12 pt-24">
       <div className="container mx-auto">
         {/* <h2 className="text-3xl font-bold text-center mb-8">My Projects</h2> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
@@ -20,7 +20,6 @@ const Projects = () => {
               key={repo.id} 
               className="shadow-xl rounded-xl p-6 transition-colors"
               style={{ 
-                backgroundColor: 'var(--bg-secondary)', 
                 border: '1px solid var(--border-color)',
                 color: 'var(--text-primary)'
               }}

@@ -27,10 +27,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header, footer {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
+
 
 a:not([style*="color"]) {
   color: var(--accent-color);
