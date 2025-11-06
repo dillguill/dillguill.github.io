@@ -48,7 +48,7 @@ const SocialLinks = () => {
                     color: 'var(--text-primary)'
                   }}
                 >
-                  <Icon className="text-3xl" style={{ color: link.color }} />
+                  <Icon size={24} style={{ color: 'var(--text-primary)' }} />
                   <span className="text-xl font-medium">{link.name}</span>
                 </a>
               );
