@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaCircle } from "react-icons/fa";
-import { Helmet } from "react-helmet";
 
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    return savedTheme === "dark";
+    // Always detect system preference on page refresh (reset saved preference)
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark;
   });
   const location = useLocation();
 
@@ -25,17 +25,21 @@ export default function Header() {
     const root = document.documentElement;
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     
+    // Apply theme classes based on manual override or system preference
     if (darkMode) {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
     
+    // Update meta theme color using CSS variable
     if (metaThemeColor) {
-      metaThemeColor.content = darkMode ? "#333333" : "#f5f5f5";
+      const bgPrimary = getComputedStyle(root).getPropertyValue('--bg-primary').trim();
+      metaThemeColor.content = bgPrimary;
     }
     
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    // Clear any saved preference on mount (reset on page refresh)
+    localStorage.removeItem("theme");
   }, [darkMode]);
 
   function getTimeString() {
@@ -69,17 +73,8 @@ export default function Header() {
     return name.length > maxLength ? name.slice(0, maxLength) + "..." : name;
   }
 
-  const currentColor = darkMode ? "#0a0a0a" : "#ffffff";
-
   return (
     <>
-      <Helmet>
-        <meta 
-          name="theme-color" 
-          content={currentColor} 
-          data-react-helmet="true" 
-        />
-      </Helmet>
       <header className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 backdrop-blur-md" style={{ color: 'var(--text-primary)' }}>
         <div className="mx-auto max-w-screen-xxl px-6 py-3 flex items-center justify-between">
           <nav>
