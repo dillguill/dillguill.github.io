@@ -1,12 +1,12 @@
 :root {
-  --bg-primary: #ffffff;
+  --bg-primary: #EAE0D2;
   --bg-secondary: #f8f9fa;
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
+  --border-color: #1a1a1a;
   --accent-color: #3b82f6;
   --accent-hover: #2563eb;
-  --meta-theme-color: #ffffff;
+  --meta-theme-color: #EAE0D2;
 }
 
 .dark {
