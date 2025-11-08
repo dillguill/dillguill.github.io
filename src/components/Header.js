@@ -23,24 +23,40 @@ export default function Header() {
 
   useEffect(() => {
     const root = document.documentElement;
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    
+
     // Apply theme classes based on manual override or system preference
     if (darkMode) {
       root.classList.add("dark");
+      root.style.colorScheme = 'dark';
     } else {
       root.classList.remove("dark");
+      root.style.colorScheme = 'light';
     }
-    
-    // Update meta theme color using CSS variable
+
+    // Update meta theme-color for browser status bar
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      const bgPrimary = getComputedStyle(root).getPropertyValue('--bg-primary').trim();
-      metaThemeColor.content = bgPrimary;
+      metaThemeColor.content = darkMode ? '#0a0a0a' : '#ffffff';
+      console.log('Meta theme color updated to:', metaThemeColor.content); // Debug log
     }
-    
+
+    // Update apple status bar style for iOS PWA
+    const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+    if (appleStatusBar) {
+      appleStatusBar.content = darkMode ? 'black-translucent' : 'default';
+    }
+  }, [darkMode]);
+
+  // Separate useEffect to clear saved preference only on mount (page refresh)
+  useEffect(() => {
     // Clear any saved preference on mount (reset on page refresh)
     localStorage.removeItem("theme");
-  }, [darkMode]);
+  }, []);
+
+  const handleThemeToggle = () => {
+    console.log('Theme toggle clicked, current darkMode:', darkMode); // Debug log
+    setDarkMode(!darkMode);
+  };
 
   function getTimeString() {
     return (
@@ -75,7 +91,12 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 backdrop-blur-md" style={{ color: 'var(--text-primary)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50"
+              style={{ 
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-primary)',
+                borderBottomColor: 'var(--border-color)'
+              }}>
         <div className="mx-auto max-w-screen-xxl px-6 py-3 flex items-center justify-between">
           <nav>
             <ul className="flex items-center space-x-2 text-sm sm:text-base">
@@ -99,10 +120,8 @@ export default function Header() {
           </nav>
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => {
-                setDarkMode(!darkMode);
-              }}
-              className="p-2 rounded-full transition-colors duration-300"
+              onClick={handleThemeToggle}
+              className="p-2 rounded-full"
               aria-label={
                 darkMode ? "Switch to light mode" : "Switch to dark mode"
               }
@@ -115,10 +134,8 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="w-full h-px transition-colors duration-300" style={{ backgroundColor: 'var(--border-color)' }}></div>
+        <div className="w-full h-px" style={{ backgroundColor: 'var(--border-color)' }}></div>
       </header>
     </>
   );
 }
-
-

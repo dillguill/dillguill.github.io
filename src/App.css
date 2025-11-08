@@ -6,6 +6,7 @@
   --border-color: #e5e7eb;
   --accent-color: #3b82f6;
   --accent-hover: #2563eb;
+  --meta-theme-color: #ffffff;
 }
 
 .dark {
@@ -16,15 +17,15 @@
   --border-color: #374151;
   --accent-color: #60a5fa;
   --accent-hover: #3b82f6;
+  --meta-theme-color: #0a0a0a;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) 
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
            env(safe-area-inset-bottom) env(safe-area-inset-left);
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
