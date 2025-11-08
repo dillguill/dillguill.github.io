@@ -1,23 +1,23 @@
 :root {
+  --meta-theme-color: #EAE0D2;
   --bg-primary: #EAE0D2;
   --bg-secondary: #f8f9fa;
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
   --border-color: #1a1a1a;
-  --accent-color: #3b82f6;
-  --accent-hover: #2563eb;
-  --meta-theme-color: #EAE0D2;
+  --accent-color: #2D2D2D;
+  --accent-hover: #2D2D2D;
 }
 
 .dark {
+  --meta-theme-color: #0a0a0a;
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1a1a;
   --text-primary: #f5f5f5;
   --text-secondary: #9ca3af;
   --border-color: #374151;
-  --accent-color: #60a5fa;
-  --accent-hover: #3b82f6;
-  --meta-theme-color: #0a0a0a;
+  --accent-color: #9ca3af;
+  --accent-hover: #9ca3af;
 }
 
 body {
