@@ -19,7 +19,6 @@ function App() {
         <Route path="/socials" element={<SocialLinks />} />
       </Routes>
       <NavbarSimple />
-      {/* <Footer /> */}
     </Router>
   );
 }
