@@ -57,54 +57,6 @@ export default function ProjectDetail({ frontMatter, mdxSource }) {
               Back to Projects
             </Link>
 
-            {/* Project header */}
-            <div className="mb-8">
-              <h1 className="text-4xl font-bold mb-4 text-[var(--text-primary)]">
-                {frontMatter.title}
-              </h1>
-              <p className="text-xl mb-6 text-[var(--text-secondary)]">
-                {frontMatter.description}
-              </p>
-
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {frontMatter.tech && frontMatter.tech.map(tech => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 rounded-full text-sm bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {frontMatter.demo && (
-                  <a
-                    href={frontMatter.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-6 rounded-lg transition-all duration-200 hover:opacity-70 border border-[var(--border-color)] text-[var(--text-primary)]"
-                  >
-                    <FaExternalLinkAlt size={24} className="text-[var(--text-primary)]" />
-                    <span className="text-xl font-medium">Live Demo</span>
-                  </a>
-                )}
-                {frontMatter.github && (
-                  <a
-                    href={frontMatter.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-6 rounded-lg transition-all duration-200 hover:opacity-70 border border-[var(--border-color)] text-[var(--text-primary)]"
-                  >
-                    <FaGithub size={24} className="text-[var(--text-primary)]" />
-                    <span className="text-xl font-medium">View Code</span>
-                  </a>
-                )}
-              </div>
-            </div>
-
             {/* Project content */}
             <div
               className="prose prose-lg max-w-none text-[var(--text-primary)]"
