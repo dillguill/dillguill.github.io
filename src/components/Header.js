@@ -111,7 +111,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-screen-xxl px-6 py-3 flex items-center justify-between">
         <nav>
-          <ul className="flex items-center space-x-2 text-sm sm:text-base">
+          <ul className="flex items-center space-x-1 text-sm sm:text-base">
             {getBreadcrumbs().map((breadcrumb, index) => (
               <li key={breadcrumb.path} className="flex items-center">
                 <Link
@@ -130,7 +130,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-0">
           <button
             onClick={handleThemeToggle}
             className="p-2 rounded-full"
