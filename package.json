@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "homepage": "https://dillguill.github.io",
+  "homepage": "https://dillguill.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +19,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build && touch out/.nojekyll",
+    "predeploy": "npm run build && cp public/.nojekyll out/.nojekyll",
     "deploy": "gh-pages -d out"
   },
   "eslintConfig": {
