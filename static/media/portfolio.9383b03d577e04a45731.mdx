@@ -1,0 +1,72 @@
+import {Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs} from "react/jsx-runtime";
+import {useMDXComponents as _provideComponents} from "@mdx-js/react";
+function _createMdxContent(props) {
+  const _components = {
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    hr: "hr",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.hr, {}), "\n", _jsx(_components.h2, {
+      children: "title: \"Portfolio Website\"\ndescription: \"A responsive portfolio website built with React and Tailwind CSS\"\ngithub: \"https://github.com/dillguill/dillguill.github.io\"\ndemo: \"https://dillguill.github.io\"\ntech: [\"React\", \"Tailwind CSS\", \"Framer Motion\"]"
+    }), "\n", _jsx(_components.h1, {
+      children: "Portfolio Website"
+    }), "\n", _jsx(_components.p, {
+      children: "This is my personal portfolio website showcasing my projects and skills."
+    }), "\n", _jsx(_components.h2, {
+      children: "Features"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Responsive design"
+      }), "\n", _jsx(_components.li, {
+        children: "Smooth animations with Framer Motion"
+      }), "\n", _jsx(_components.li, {
+        children: "MDX-powered project pages"
+      }), "\n", _jsx(_components.li, {
+        children: "Dark/light theme support"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      children: "Technologies Used"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "React 18"
+      }), "\n", _jsx(_components.li, {
+        children: "Tailwind CSS"
+      }), "\n", _jsx(_components.li, {
+        children: "Framer Motion"
+      }), "\n", _jsx(_components.li, {
+        children: "React Router"
+      }), "\n", _jsx(_components.li, {
+        children: "MDX for content"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      children: "Getting Started"
+    }), "\n", _jsx(_components.p, {
+      children: "Clone the repository and install dependencies:"
+    }), "\n", _jsx(_components.pre, {
+      children: _jsx(_components.code, {
+        className: "language-bash",
+        children: "npm install\nnpm start\n"
+      })
+    })]
+  });
+}
+export default function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
