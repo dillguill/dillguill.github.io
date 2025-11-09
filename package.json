@@ -20,7 +20,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build && cp public/.nojekyll out/.nojekyll",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out -t true"
   },
   "eslintConfig": {
     "extends": [
