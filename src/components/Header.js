@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { FaCircle } from "react-icons/fa";
 
 // Theme utility functions
@@ -8,6 +9,7 @@ const setStoredTheme = (theme) => localStorage.setItem('theme', theme);
 const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
 const getInitialTheme = () => {
+  if (typeof window === 'undefined') return 'light'; // Default for SSR
   const stored = getStoredTheme();
   if (stored) return stored;
   return getSystemTheme();
@@ -16,7 +18,7 @@ const getInitialTheme = () => {
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [theme, setTheme] = useState(getInitialTheme);
-  const location = useLocation();
+  const router = useRouter();
 
   // Update clock
   useEffect(() => {
@@ -28,6 +30,7 @@ export default function Header() {
 
   // Apply theme to DOM
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const root = document.documentElement;
     const isDark = theme === 'dark';
 
@@ -52,8 +55,9 @@ export default function Header() {
 
   // Listen for system theme changes (only if user hasn't manually set theme)
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
+
     const handleChange = (e) => {
       // Only auto-switch if user hasn't manually set a preference
       const stored = getStoredTheme();
@@ -80,7 +84,7 @@ export default function Header() {
   }
 
   function getBreadcrumbs() {
-    const pathSegments = location.pathname
+    const pathSegments = router.pathname
       .split("/")
       .slice(0, 2)
       .filter((segment) => segment !== "");
@@ -101,13 +105,8 @@ export default function Header() {
   }
 
   return (
-    <header 
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{ 
-        color: 'var(--text-primary)',
-        backgroundColor: 'var(--bg-primary)',
-        borderBottomColor: 'var(--border-color)'
-      }}
+    <header
+      className="fixed top-0 left-0 right-0 z-50 text-[var(--text-primary)] bg-[var(--bg-primary)] border-b border-[var(--border-color)]"
     >
       <div className="mx-auto max-w-screen-xxl px-6 py-3 flex items-center justify-between">
         <nav>
@@ -115,14 +114,13 @@ export default function Header() {
             {getBreadcrumbs().map((breadcrumb, index) => (
               <li key={breadcrumb.path} className="flex items-center">
                 <Link
-                  to={breadcrumb.path}
-                  className="transition-colors duration-200 hover:opacity-70"
-                  style={{ color: 'var(--text-primary)' }}
+                  href={breadcrumb.path}
+                  className="transition-colors duration-200 hover:opacity-70 text-[var(--text-primary)]"
                 >
                   {index === 0 ? breadcrumb.name : truncateName(breadcrumb.name, 14)}
                 </Link>
                 {index < getBreadcrumbs().length - 1 && (
-                  <span className="mx-2" style={{ color: 'var(--text-secondary)' }}>
+                  <span className="mx-2 text-[var(--text-secondary)]">
                     /
                   </span>
                 )}
@@ -133,22 +131,20 @@ export default function Header() {
         <div className="flex items-center space-x-0">
           <button
             onClick={handleThemeToggle}
-            className="p-2 rounded-full"
+            className="p-2 rounded-full text-[var(--text-primary)]"
             aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
-            style={{ color: 'var(--text-primary)' }}
           >
             <FaCircle className="w-4 h-4" />
           </button>
-          <div 
-            className="text-sm sm:text-base" 
-            style={{ color: 'var(--text-primary)' }} 
+          <div
+            className="text-sm sm:text-base text-[var(--text-primary)]"
             suppressHydrationWarning
           >
             {getTimeString()}
           </div>
         </div>
       </div>
-      <div className="w-full h-px" style={{ backgroundColor: 'var(--border-color)' }}></div>
+      <div className="w-full h-px bg-[var(--border-color)]"></div>
     </header>
   );
 }

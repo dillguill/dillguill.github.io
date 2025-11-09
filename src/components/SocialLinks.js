@@ -42,13 +42,9 @@ const SocialLinks = () => {
                   href={link.url}
                   target={link.url.startsWith('http') ? '_blank' : undefined}
                   rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-6 rounded-lg transition-all duration-200 hover:opacity-70 border"
-                  style={{
-                    borderColor: 'var(--border-color)',
-                    color: 'var(--text-primary)'
-                  }}
+                  className="flex items-center gap-4 p-6 rounded-lg transition-all duration-200 hover:opacity-70 border border-[var(--border-color)] text-[var(--text-primary)]"
                 >
-                  <Icon size={24} style={{ color: 'var(--text-primary)' }} />
+                  <Icon size={24} className="text-[var(--text-primary)]" />
                   <span className="text-xl font-medium">{link.name}</span>
                 </a>
               );
@@ -61,4 +57,3 @@ const SocialLinks = () => {
 };
 
 export default SocialLinks;
-
