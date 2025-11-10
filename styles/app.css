@@ -1,5 +1,4 @@
 :root {
-  --meta-theme-color: #EAE0D2;
   --bg-primary: #EAE0D2;
   --bg-secondary: #f8f9fa;
   --text-primary: #1a1a1a;
@@ -10,7 +9,6 @@
 }
 
 .dark {
-  --meta-theme-color: #0a0a0a;
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1a1a;
   --text-primary: #f5f5f5;

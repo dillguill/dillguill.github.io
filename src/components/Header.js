@@ -2,67 +2,42 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaCircle } from "react-icons/fa";
-
-// Theme utility functions
-const getStoredTheme = () => localStorage.getItem('theme');
-const setStoredTheme = (theme) => localStorage.setItem('theme', theme);
-const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-const getInitialTheme = () => {
-  if (typeof window === 'undefined') return 'light'; // Default for SSR
-  const stored = getStoredTheme();
-  if (stored) return stored;
-  return getSystemTheme();
-};
+import { getInitialTheme, applyTheme, THEMES } from '../utils/theme';
 
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState(THEMES.LIGHT);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setTheme(getInitialTheme());
+    setMounted(true);
+  }, []);
 
   // Update clock
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  // Apply theme to DOM
+  // Apply theme changes
+  useEffect(() => {
+    if (mounted) {
+      applyTheme(theme);
+    }
+  }, [theme, mounted]);
+
+  // Listen for system theme changes (only auto-switch if no manual preference)
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const root = document.documentElement;
-    const isDark = theme === 'dark';
-
-    // Apply classes
-    root.classList.toggle('dark', isDark);
-    root.style.colorScheme = theme;
-
-    // Update meta tags
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (metaThemeColor) {
-      metaThemeColor.content = isDark ? '#0a0a0a' : '#EAE0D2';
-    }
-
-    const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
-    if (appleStatusBar) {
-      appleStatusBar.content = isDark ? 'black-translucent' : 'default';
-    }
-
-    // Persist preference
-    setStoredTheme(theme);
-  }, [theme]);
-
-  // Listen for system theme changes (only if user hasn't manually set theme)
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
+    
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
     const handleChange = (e) => {
-      // Only auto-switch if user hasn't manually set a preference
-      const stored = getStoredTheme();
+      const stored = localStorage.getItem('theme');
       if (!stored) {
-        setTheme(e.matches ? 'dark' : 'light');
+        setTheme(e.matches ? THEMES.DARK : THEMES.LIGHT);
       }
     };
 
@@ -71,7 +46,7 @@ export default function Header() {
   }, []);
 
   const handleThemeToggle = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme(prev => prev === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK);
   };
 
   function getTimeString() {
