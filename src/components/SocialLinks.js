@@ -18,13 +18,13 @@ const SocialLinks = () => {
     {
       name: 'GitHub',
       icon: FaGithub,
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/dillguill',
       color: 'var(--accent-color)'
     },
     {
       name: 'LinkedIn',
       icon: FaLinkedin,
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'https://www.linkedin.com/in/dillon-guillory/',
       color: 'var(--accent-color)'
     }
   ];
