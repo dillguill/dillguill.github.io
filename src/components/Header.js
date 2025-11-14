@@ -2,17 +2,16 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaCircle } from "react-icons/fa";
-import { getInitialTheme, applyTheme, THEMES } from '../utils/theme';
+import { useTheme } from 'next-themes';
 
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [theme, setTheme] = useState(THEMES.LIGHT);
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
   const router = useRouter();
 
-  // Prevent hydration mismatch
+  // Set mounted to true after client-side hydration
   useEffect(() => {
-    setTheme(getInitialTheme());
     setMounted(true);
   }, []);
 
@@ -22,31 +21,8 @@ export default function Header() {
     return () => clearInterval(timer);
   }, []);
 
-  // Apply theme changes
-  useEffect(() => {
-    if (mounted) {
-      applyTheme(theme);
-    }
-  }, [theme, mounted]);
-
-  // Listen for system theme changes (only auto-switch if no manual preference)
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => {
-      const stored = localStorage.getItem('theme');
-      if (!stored) {
-        setTheme(e.matches ? THEMES.DARK : THEMES.LIGHT);
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
   const handleThemeToggle = () => {
-    setTheme(prev => prev === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK);
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   function getTimeString() {
@@ -104,13 +80,15 @@ export default function Header() {
           </ul>
         </nav>
         <div className="flex items-center space-x-0">
-          <button
-            onClick={handleThemeToggle}
-            className="p-2 rounded-full text-[var(--text-primary)]"
-            aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            <FaCircle className="w-4 h-4" />
-          </button>
+          {mounted && (
+            <button
+              onClick={handleThemeToggle}
+              className="p-2 rounded-full text-[var(--text-primary)]"
+              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              <FaCircle className="w-4 h-4" />
+            </button>
+          )}
           <div
             className="text-sm sm:text-base text-[var(--text-primary)]"
             suppressHydrationWarning
