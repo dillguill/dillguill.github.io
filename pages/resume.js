@@ -85,7 +85,7 @@ export default function ResumePage({ resume }) {
                   <p className="text-sm font-semibold text-[var(--text-primary)] mb-1">{skill.name}</p>
                   <div className="flex flex-wrap gap-1">
                     {skill.keywords.map((kw) => (
-                      <span key={kw} className="border border-[var(--border-color)] px-2 py-0.5 rounded-full text-xs text-[var(--text-secondary)]">
+                      <span key={kw} className="px-2 py-1 text-xs rounded border bg-[var(--bg-primary)] text-[var(--text-primary)] border-[var(--border-color)]">
                         {kw}
                       </span>
                     ))}
