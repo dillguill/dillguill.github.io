@@ -1,34 +1,20 @@
 import React from 'react';
-import { FaEnvelope, FaFileAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+const socialLinks = [
+  {
+    name: 'GitHub',
+    icon: FaGithub,
+    url: 'https://github.com/dillguill',
+  },
+  {
+    name: 'LinkedIn',
+    icon: FaLinkedin,
+    url: 'https://www.linkedin.com/in/dillon-guillory/',
+  },
+];
 
 const SocialLinks = () => {
-  const socialLinks = [
-    {
-      name: 'Email',
-      icon: FaEnvelope,
-      url: 'mailto:your.email@example.com',
-      color: 'var(--accent-color)'
-    },
-    {
-      name: 'Resume',
-      icon: FaFileAlt,
-      url: '/resume.pdf',
-      color: 'var(--accent-color)'
-    },
-    {
-      name: 'GitHub',
-      icon: FaGithub,
-      url: 'https://github.com/dillguill',
-      color: 'var(--accent-color)'
-    },
-    {
-      name: 'LinkedIn',
-      icon: FaLinkedin,
-      url: 'https://www.linkedin.com/in/dillon-guillory/',
-      color: 'var(--accent-color)'
-    }
-  ];
-
   return (
     <section id="socials" className="py-12 min-h-screen pt-24">
       <div className="container mx-auto px-6">
@@ -40,8 +26,8 @@ const SocialLinks = () => {
                 <a
                   key={link.name}
                   href={link.url}
-                  target={link.url.startsWith('http') ? '_blank' : undefined}
-                  rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-6 rounded-lg transition-all duration-200 hover:opacity-70 border border-[var(--border-color)] text-[var(--text-primary)]"
                 >
                   <Icon size={24} className="text-[var(--text-primary)]" />
