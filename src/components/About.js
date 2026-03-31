@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaUpwork } from 'react-icons/fa6';
 
 const socialLinks = [
   {
@@ -13,6 +14,11 @@ const socialLinks = [
     name: 'LinkedIn',
     icon: FaLinkedin,
     url: 'https://www.linkedin.com/in/dillon-guillory/',
+  },
+  {
+    name: 'UpWork',
+    icon: FaUpwork,
+    url: 'https://www.upwork.com/freelancers/~01f791efc5982a7e5d',
   },
 ];
 
