@@ -14,7 +14,7 @@ export default function BlobBackground() {
   const canvasRef = useRef(null);
   const { resolvedTheme } = useTheme();
 
-  // ── Rebuild gradient whenever next-themes resolvedTheme changes ─────────────
+  // ── Rebuild gradient when theme changes ─────────────────────────────────────
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx    = ctxRef.current;
@@ -30,7 +30,7 @@ export default function BlobBackground() {
     lavaRef.current.fill = g;
   }, [resolvedTheme]);
 
-  // ── Animation setup — runs once on mount ────────────────────────────────────
+  // ── Animation setup ─────────────────────────────────────────────────────────
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -40,7 +40,6 @@ export default function BlobBackground() {
     const isMobile = () => window.innerWidth < 768;
 
     function makeGradient(w, h) {
-      // Read from html class — this is what next-themes sets
       const dark = document.documentElement.classList.contains('dark');
       const cols = dark ? COLORS.dark : COLORS.light;
       const g = ctx.createRadialGradient(w, h, 0, w, h, w);
@@ -51,7 +50,6 @@ export default function BlobBackground() {
       return g;
     }
 
-    // ── Point ──────────────────────────────────────────────────────────────────
     function Point(x, y) {
       this.x = x;
       this.y = y;
@@ -63,7 +61,6 @@ export default function BlobBackground() {
       return new Point(this.x + p.x, this.y + p.y);
     };
 
-    // ── Ball ───────────────────────────────────────────────────────────────────
     function Ball(w, h) {
       const wh      = Math.min(w, h);
       const divisor = isMobile() ? 12 : 10;
@@ -97,7 +94,6 @@ export default function BlobBackground() {
       this.pos = this.pos.add(this.vel);
     };
 
-    // ── LavaLamp ───────────────────────────────────────────────────────────────
     function LavaLamp(w, h) {
       this.step   = isMobile() ? 5 : 3;
       this.width  = w;
@@ -214,32 +210,57 @@ export default function BlobBackground() {
       }
     };
 
-    // ── Resize & loop ──────────────────────────────────────────────────────────
-    const resize = () => {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-      lavaRef.current = new LavaLamp(canvas.width, canvas.height);
+    // ── Resize ─────────────────────────────────────────────────────────────────
+    // window 'resize' fires on mobile whenever the browser chrome (address bar)
+    // shows or hides during scroll. visualViewport.resize only fires on genuine
+    // layout changes (orientation flip, desktop window drag).
+    let stableWidth  = window.innerWidth;
+    let stableHeight = window.innerHeight;
+
+    canvas.width  = stableWidth;
+    canvas.height = stableHeight;
+    lavaRef.current = new LavaLamp(stableWidth, stableHeight);
+
+    const onViewportResize = () => {
+      const vv = window.visualViewport;
+      const newWidth  = Math.round(vv ? vv.width  : window.innerWidth);
+      const newHeight = Math.round(vv ? vv.height : window.innerHeight);
+
+      // Ignore sub-pixel jitter and address-bar-only height changes
+      if (newWidth === stableWidth && newHeight === stableHeight) return;
+
+      // A height-only change on mobile is the address bar — skip LavaLamp rebuild
+      const widthChanged = newWidth !== stableWidth;
+
+      stableWidth  = newWidth;
+      stableHeight = newHeight;
+      canvas.width  = newWidth;
+      canvas.height = newHeight;
+
+      if (widthChanged) {
+        lavaRef.current = new LavaLamp(newWidth, newHeight);
+      }
     };
 
+    const resizeTarget = window.visualViewport ?? window;
+    resizeTarget.addEventListener('resize', onViewportResize);
+
+    // ── Loop ───────────────────────────────────────────────────────────────────
     const loop = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       lavaRef.current.render();
       rafRef.current = requestAnimationFrame(loop);
     };
-
-    resize();
     loop();
 
-    window.addEventListener('resize', resize);
     return () => {
       cancelAnimationFrame(rafRef.current);
-      window.removeEventListener('resize', resize);
+      resizeTarget.removeEventListener('resize', onViewportResize);
     };
   }, []);
 
   return (
     <>
-      {/* Blob canvas — sits furthest back */}
       <canvas
         ref={canvasRef}
         style={{
@@ -253,8 +274,6 @@ export default function BlobBackground() {
           display:       'block',
         }}
       />
-
-      {/* Frosted glass overlay — matches navbar backdrop-blur style */}
       <div
         aria-hidden="true"
         style={{
