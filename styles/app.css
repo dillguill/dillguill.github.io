@@ -6,6 +6,7 @@
   --border-color: #1a1a1a;
   --accent-color: #2D2D2D;
   --accent-hover: #2D2D2D;
+  --overlay-bg: rgba(234, 224, 210, 0.55); 
 }
 
 .dark {
@@ -16,6 +17,7 @@
   --border-color: #374151;
   --accent-color: #9ca3af;
   --accent-hover: #9ca3af;
+  --overlay-bg: rgba(10, 10, 10, 0.55); 
 }
 
 body {
