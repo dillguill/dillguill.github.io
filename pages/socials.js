@@ -5,7 +5,6 @@ export default function SocialsPage() {
   return (
     <>
       <Header />
-      <SocialLinks />
       <NavbarSimple />
     </>
   );
