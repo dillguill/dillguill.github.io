@@ -15,11 +15,6 @@ const socialLinks = [
     icon: FaLinkedin,
     url: 'https://www.linkedin.com/in/dillon-guillory/',
   },
-  {
-    name: 'UpWork',
-    icon: FaUpwork,
-    url: 'https://www.upwork.com/freelancers/~01f791efc5982a7e5d',
-  },
 ];
 
 const fadeUp = {
