@@ -46,7 +46,7 @@ const Home = ({ projectsData }) => {
         <div className="rule-h" style={{ top: '108px' }}></div>
         <div className="coord-tl">
           <div>X_000 / Y_000</div>
-          <div>BUILD 2025.001</div>
+          <div>BUILD 2026.05.XX</div>
         </div>
         <div className="coord-tr">
           <div>29.7604° N · 95.3698° W</div>
@@ -55,7 +55,7 @@ const Home = ({ projectsData }) => {
         <div className="sec-content">
           <div className="section-label">
             <span className="idx-rule"></span>
-            <span>[ 001 ]&nbsp;&nbsp;HOME</span>
+            <span>[ 000 ]&nbsp;&nbsp;HOME</span>
           </div>
           <div className="hero-text-wrap">
             <span className={`hero-text ${getWordClass(0)}`} id="w0">Welcome</span>
@@ -80,7 +80,7 @@ const Home = ({ projectsData }) => {
       <div className="section" id="s1">
         <div className="rule-h" style={{ top: '108px' }}></div>
         <div className="coord-tl">
-          <div>X_001 / Y_000</div>
+          <div>X_000 / Y_001</div>
         </div>
         <div className="coord-tr">
           <div>Full-stack Developer</div>
@@ -91,14 +91,14 @@ const Home = ({ projectsData }) => {
             <div className="about-item">Based<span className="about-val">Houston, TX</span></div>
             <div className="about-item">Focus<span className="about-val">Full-Stack / AI</span></div>
             <div className="about-item">Certified<span className="about-val">AWS · IBM</span></div>
-            <div className="about-item">Stack<span className="about-val">React · Node · Docker</span></div>
+            <div className="about-item">Stack<span className="about-val">React · Django · Node.js</span></div>
           </div>
         </div>
         {/* Title at bottom-left, link at bottom-right */}
         <div className="sec-content">
           <div className="section-label">
             <span className="idx-rule"></span>
-            <span>[ 002 ]&nbsp;&nbsp;ABOUT</span>
+            <span>[ 001 ]&nbsp;&nbsp;ABOUT</span>
           </div>
           <div className="hero-text-wrap hero-wrap-name">
             <span className="hero-text on" style={{ fontSize: '86px', whiteSpace: 'normal', lineHeight: 1 }}>Dillon Guillory</span>
@@ -112,7 +112,7 @@ const Home = ({ projectsData }) => {
       {/* SECTION 2: PROJECTS */}
       <div className="section" id="s2">
         <div className="rule-h" style={{ top: '108px' }}></div>
-        <div className="coord-tl"><div>X_002 / Y_000</div></div>
+        <div className="coord-tl"><div>X_000 / Y_002</div></div>
         <div className="coord-tr"><div>Selected Work</div></div>
         {/* Content in upper area - dynamic projects */}
         <div className="prev-top">
@@ -150,7 +150,7 @@ const Home = ({ projectsData }) => {
         <div className="sec-content">
           <div className="section-label">
             <span className="idx-rule"></span>
-            <span>[ 003 ]&nbsp;&nbsp;PROJECTS</span>
+            <span>[ 002 ]&nbsp;&nbsp;PROJECTS</span>
           </div>
           <div className="hero-text-wrap hero-wrap-section">
             <span className="hero-text on" style={{ fontSize: '86px' }}>Work</span>
@@ -164,7 +164,7 @@ const Home = ({ projectsData }) => {
       {/* SECTION 3: RESUME */}
       <div className="section" id="s3">
         <div className="rule-h" style={{ top: '108px' }}></div>
-        <div className="coord-tl"><div>X_003 / Y_000</div></div>
+        <div className="coord-tl"><div>X_000 / Y_003</div></div>
         <div className="coord-tr"><div>Experience</div></div>
         {/* Content in upper area */}
         <div className="prev-top">
@@ -191,7 +191,7 @@ const Home = ({ projectsData }) => {
         <div className="sec-content">
           <div className="section-label">
             <span className="idx-rule"></span>
-            <span>[ 004 ]&nbsp;&nbsp;RESUME</span>
+            <span>[ 003 ]&nbsp;&nbsp;RESUME</span>
           </div>
           <div className="hero-text-wrap hero-wrap-section">
             <span className="hero-text on" style={{ fontSize: '86px' }}>Experience</span>
@@ -208,22 +208,22 @@ const Home = ({ projectsData }) => {
           <div className="tick-item" data-sec="0">
             <span className="tick-label">Home</span>
             <span className="tick-mark"></span>
-            <span className="tick-num">01</span>
+            <span className="tick-num">00</span>
           </div>
           <div className="tick-item" data-sec="1">
             <span className="tick-label">About</span>
             <span className="tick-mark"></span>
-            <span className="tick-num">02</span>
+            <span className="tick-num">01</span>
           </div>
           <div className="tick-item" data-sec="2">
             <span className="tick-label">Projects</span>
             <span className="tick-mark"></span>
-            <span className="tick-num">03</span>
+            <span className="tick-num">02</span>
           </div>
           <div className="tick-item" data-sec="3">
             <span className="tick-label">Resume</span>
             <span className="tick-mark"></span>
-            <span className="tick-num">04</span>
+            <span className="tick-num">03</span>
           </div>
         </div>
       </div>
