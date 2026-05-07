@@ -33,7 +33,7 @@ export default function ResumePage({ resume }) {
     return (
       <>
         <Header />
-        <main className="pt-20 px-6 max-w-3xl mx-auto">
+        <main className="pt-20 px-6 max-w-3xl mx-auto" style={{ position: 'relative', zIndex: 10 }}>
           <p>Resume not found.</p>
         </main>
         <NavbarSimple />
@@ -46,7 +46,7 @@ export default function ResumePage({ resume }) {
   return (
     <>
       <Header />
-      <main className="pt-20 px-6 max-w-3xl mx-auto pb-24">
+      <main className="pt-20 px-6 max-w-3xl mx-auto pb-24" style={{ position: 'relative', zIndex: 10 }}>
 
         {/* Basics */}
         <div className="mb-8 border-b border-[var(--border-color)] pb-6">

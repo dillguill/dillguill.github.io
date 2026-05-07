@@ -6,7 +6,9 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <About />
+      <main style={{ position: 'relative', zIndex: 10 }}>
+        <About />
+      </main>
       <NavbarSimple />
     </>
   );

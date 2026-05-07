@@ -34,7 +34,9 @@ export default function ProjectsPage({ projectsData }) {
   return (
     <>
       <Header />
-      <Projects projectsData={projectsData} />
+      <main style={{ position: 'relative', zIndex: 10 }}>
+        <Projects projectsData={projectsData} />
+      </main>
       <NavbarSimple />
     </>
   );

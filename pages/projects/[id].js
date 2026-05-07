@@ -45,6 +45,7 @@ export default function ProjectDetail({ frontMatter, mdxSource }) {
   return (
     <>
       <Header />
+      <main style={{ position: 'relative', zIndex: 10 }}>
       <section className="py-12 min-h-screen pt-24">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -74,6 +75,7 @@ export default function ProjectDetail({ frontMatter, mdxSource }) {
           </div>
         </div>
       </section>
+      </main>
       <NavbarSimple />
     </>
   );
