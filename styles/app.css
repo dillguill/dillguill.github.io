@@ -460,11 +460,13 @@ body {
   .coord-tl {
     left: 20px;
     font-size: 11px;
+    letter-spacing: 0.07em;
   }
 
   .coord-tr {
     right: 60px;
     font-size: 11px;
+    letter-spacing: 0.07em;
   }
 
   .sec-content {
