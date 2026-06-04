@@ -65,9 +65,9 @@ export default function ProjectDetail({ frontMatter, mdxSource }) {
                 '--tw-prose-headings': 'var(--text-primary)',
                 '--tw-prose-body': 'var(--text-secondary)',
                 '--tw-prose-links': 'var(--accent-color)',
-                '--tw-prose-code': 'var(--text-primary)',
-                '--tw-prose-pre-bg': 'var(--bg-secondary)',
-                '--tw-prose-blockquote-border': 'var(--border-color)'
+                '--tw-prose-code': 'var(--code-fg)',
+                '--tw-prose-pre-bg': 'var(--pre-bg)',
+                '--tw-prose-blockquote-border': 'var(--accent-color)'
               }}
             >
               <MDXRemote {...mdxSource} />
