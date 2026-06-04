@@ -3,25 +3,33 @@
 :root {
   --bg-primary: #EDE3D5;
   --text-primary: rgba(8,4,2,0.92);
-  --text-secondary: rgba(10,5,2,0.55);
-  --border-color: rgba(10,5,2,0.18);
-  --accent-color: rgba(10,5,2,0.75);
+  --text-secondary: rgba(10,5,2,0.82);
+  --border-color: rgba(10,5,2,0.22);
+  --accent-color: rgb(218, 88, 38);
   --glass-bg: rgba(237,227,213,0.68);
   --header-bg: rgba(237,227,213,0.68);
-  --coord-color: rgba(10,5,2,0.48);
-  --section-label-color: rgba(10,5,2,0.52);
+  --coord-color: rgba(10,5,2,0.80);
+  --section-label-color: rgba(10,5,2,0.82);
+  --code-fg: rgb(180, 56, 18);
+  --code-bg: rgba(218, 88, 38, 0.10);
+  --pre-bg: rgba(40, 12, 4, 0.06);
+  --pre-border: rgba(218, 88, 38, 0.55);
 }
 
 .dark {
   --bg-primary: #060406;
   --text-primary: rgba(255,242,232,0.96);
-  --text-secondary: rgba(255,236,220,0.55);
-  --border-color: rgba(255,236,220,0.12);
-  --accent-color: rgba(255,236,220,0.80);
+  --text-secondary: rgba(255,236,220,0.85);
+  --border-color: rgba(255,236,220,0.20);
+  --accent-color: rgb(0, 178, 255);
   --glass-bg: rgba(6,4,6,0.68);
   --header-bg: rgba(6,4,6,0.68);
-  --coord-color: rgba(255,236,220,0.45);
-  --section-label-color: rgba(255,236,220,0.52);
+  --coord-color: rgba(255,236,220,0.82);
+  --section-label-color: rgba(255,236,220,0.85);
+  --code-fg: rgb(0, 205, 255);
+  --code-bg: rgba(0, 178, 255, 0.12);
+  --pre-bg: rgba(0, 15, 40, 0.55);
+  --pre-border: rgba(0, 178, 255, 0.50);
 }
 
 * {
@@ -133,7 +141,7 @@ body {
   top: 24px;
   left: 64px;
   z-index: 4;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   color: var(--coord-color);
   line-height: 2;
@@ -144,7 +152,7 @@ body {
   top: 24px;
   right: 68px;
   z-index: 4;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   color: var(--coord-color);
   text-align: right;
@@ -162,7 +170,7 @@ body {
 }
 
 .section-label {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.3em;
   color: var(--section-label-color);
   margin-bottom: 12px;
@@ -223,7 +231,7 @@ body {
 }
 
 .lang-id {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.22em;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -231,7 +239,7 @@ body {
 }
 
 .pitch {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.14em;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -260,7 +268,7 @@ body {
 }
 
 .about-item {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.16em;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -300,7 +308,7 @@ body {
 }
 
 .proj-tech {
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   color: var(--text-secondary);
   font-style: italic;
@@ -329,14 +337,14 @@ body {
 }
 
 .res-role {
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   color: var(--text-secondary);
   font-style: italic;
 }
 
 .prev-link {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -390,9 +398,9 @@ body {
 }
 
 .tick-label {
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.24em;
-  color: rgba(10,5,2,0.28);
+  color: rgba(10,5,2,0.75);
   text-transform: uppercase;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -401,7 +409,7 @@ body {
 }
 
 .dark .tick-label {
-  color: rgba(255,236,220,0.26);
+  color: rgba(255,236,220,0.78);
 }
 
 .tick-item.act .tick-label {
@@ -412,12 +420,12 @@ body {
   width: 12px;
   height: 1px;
   flex-shrink: 0;
-  background: rgba(10,5,2,0.22);
+  background: rgba(10,5,2,0.55);
   transition: width 0.3s, background 0.3s;
 }
 
 .dark .tick-mark {
-  background: rgba(255,236,220,0.2);
+  background: rgba(255,236,220,0.55);
 }
 
 .tick-item.act .tick-mark {
@@ -426,16 +434,16 @@ body {
 }
 
 .tick-num {
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.1em;
-  color: rgba(10,5,2,0.24);
+  color: rgba(10,5,2,0.72);
   transition: color 0.3s;
   min-width: 12px;
   text-align: right;
 }
 
 .dark .tick-num {
-  color: rgba(255,236,220,0.22);
+  color: rgba(255,236,220,0.75);
 }
 
 .tick-item.act .tick-num {
@@ -451,12 +459,12 @@ body {
 
   .coord-tl {
     left: 20px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .coord-tr {
     right: 60px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .sec-content {
@@ -464,7 +472,7 @@ body {
   }
 
   .section-label {
-    font-size: 10px;
+    font-size: 12px;
     gap: 10px;
     margin-bottom: 12px;
   }
@@ -517,7 +525,7 @@ body {
   }
 
   .about-item {
-    font-size: 10px;
+    font-size: 12px;
     padding: 8px 12px 8px 0;
   }
 
@@ -538,11 +546,11 @@ body {
   }
 
   .proj-tech, .res-role {
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .prev-link {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .progress-rail {
@@ -555,7 +563,7 @@ body {
   }
 
   .tick-label {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .tick-mark {
@@ -567,7 +575,7 @@ body {
   }
 
   .tick-num {
-    font-size: 7px;
+    font-size: 9px;
     min-width: 8px;
   }
 }
@@ -576,4 +584,87 @@ body {
 main {
   position: relative;
   z-index: 10;
+}
+
+/* === Code & prose accent (thermal palette) === */
+
+/* Inline code */
+.prose :not(pre) > code {
+  color: var(--code-fg);
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.18em 0.45em;
+  font-size: 0.88em;
+  font-weight: 500;
+}
+
+/* Remove Tailwind typography's auto backtick quotes */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none !important;
+}
+
+/* Code blocks */
+.prose pre {
+  background: var(--pre-bg) !important;
+  border-left: 3px solid var(--pre-border);
+  border-radius: 6px;
+}
+
+.prose pre code {
+  color: var(--code-fg);
+  background: transparent;
+  padding: 0;
+  font-size: 0.88em;
+}
+
+.prose pre code::before,
+.prose pre code::after {
+  content: none !important;
+}
+
+/* Links */
+.prose a {
+  color: var(--accent-color);
+  text-decoration-color: var(--accent-color);
+  opacity: 0.9;
+}
+
+.prose a:hover {
+  opacity: 1;
+}
+
+/* Bold */
+.prose strong {
+  color: var(--accent-color);
+}
+
+/* Horizontal rules */
+.prose hr {
+  border-color: var(--accent-color);
+  opacity: 0.45;
+}
+
+/* Bullet and ordered list markers */
+.prose ul > li::marker {
+  color: var(--accent-color);
+}
+
+.prose ol > li::marker {
+  color: var(--accent-color);
+}
+
+/* Blockquote bar */
+.prose blockquote {
+  border-left-color: var(--accent-color);
+}
+
+/* Table headings and borders */
+.prose thead th {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.prose tbody tr {
+  border-bottom-color: var(--pre-border);
 }
