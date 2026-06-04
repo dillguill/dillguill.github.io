@@ -36,6 +36,8 @@ export function NavbarSimple() {
   }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -50,7 +52,7 @@ export function NavbarSimple() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, controls]);
+  }, [lastScrollY, controls, mounted]);
 
   const handleThemeToggle = (e) => {
     e.preventDefault();
