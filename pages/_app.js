@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         {/* Global thermal background - renders on all pages */}
-        <div className="thermal-bg"></div>
+        {/* <div className="thermal-bg"></div> */}
         <div className="glass"></div>
         <div className="grain"></div>
         <Component {...pageProps} />
