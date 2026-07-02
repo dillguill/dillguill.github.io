@@ -77,7 +77,6 @@ export default function Header() {
         {/* Desktop nav links */}
 <nav className="hidden md:flex items-center gap-4">
           <Link href="/" className="text-[12px] tracking-[0.14em] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Home</Link>
-          <Link href="/resume" className="text-[12px] tracking-[0.14em] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Resume</Link>
           <Link href="/projects" className="text-[12px] tracking-[0.14em] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Projects</Link>
           <Link href="/about" className="text-[12px] tracking-[0.14em] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">About</Link>
         </nav>
