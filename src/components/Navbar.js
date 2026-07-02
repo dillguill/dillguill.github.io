@@ -5,7 +5,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useTheme } from 'next-themes';
 import {
   FaHome,
-  FaBriefcase,
   FaFolder,
   FaUser,
   FaMoon,
@@ -68,7 +67,6 @@ export function NavbarSimple() {
     >
       <div className="flex items-center gap-1 rounded-full backdrop-blur-md shadow-lg px-3 py-2 border border-[var(--border-color)]" style={{ backgroundColor: 'var(--glass-bg)' }}>
         <NavItem href="/" label="Home" Icon={FaHome} isActive={router.pathname === "/"} />
-        <NavItem href="/resume" label="Resume" Icon={FaBriefcase} isActive={router.pathname === "/resume"} />
         <NavItem href="/projects" label="Projects" Icon={FaFolder} isActive={router.pathname === "/projects" || router.pathname.startsWith("/projects/")} />
         <NavItem href="/about" label="About" Icon={FaUser} isActive={router.pathname === "/about"} />
         <span className="w-px h-5 bg-[var(--border-color)] opacity-50 mx-1"></span>

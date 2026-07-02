@@ -76,43 +76,10 @@ const Home = ({ projectsData }) => {
         </div>
       </div>
 
-      {/* SECTION 1: ABOUT */}
+      {/* SECTION 1: PROJECTS */}
       <div className="section" id="s1">
         <div className="rule-h" style={{ top: '108px' }}></div>
-        <div className="coord-tl">
-          <div>X_000 / Y_001</div>
-        </div>
-        <div className="coord-tr">
-          <div>Full-stack Developer</div>
-        </div>
-        {/* Content in upper area */}
-        <div className="prev-top">
-          <div className="about-grid">
-            <div className="about-item">Based<span className="about-val">Houston, TX</span></div>
-            <div className="about-item">Focus<span className="about-val">Full-Stack / AI</span></div>
-            <div className="about-item">Certified<span className="about-val">AWS · IBM</span></div>
-            <div className="about-item">Stack<span className="about-val">React · Django · Node.js</span></div>
-          </div>
-        </div>
-        {/* Title at bottom-left, link at bottom-right */}
-        <div className="sec-content">
-          <div className="section-label">
-            <span className="idx-rule"></span>
-            <span>[ 001 ]&nbsp;&nbsp;ABOUT</span>
-          </div>
-          <div className="hero-text-wrap hero-wrap-name">
-            <span className="hero-text on" style={{ fontSize: '86px', whiteSpace: 'normal', lineHeight: 1 }}>Dillon Guillory</span>
-          </div>
-          <div className="meta-row">
-            <Link href="/about" className="prev-link">View profile →</Link>
-          </div>
-        </div>
-      </div>
-
-      {/* SECTION 2: PROJECTS */}
-      <div className="section" id="s2">
-        <div className="rule-h" style={{ top: '108px' }}></div>
-        <div className="coord-tl"><div>X_000 / Y_002</div></div>
+        <div className="coord-tl"><div>X_000 / Y_001</div></div>
         <div className="coord-tr"><div>Selected Work</div></div>
         {/* Content in upper area - dynamic projects */}
         <div className="prev-top">
@@ -150,7 +117,7 @@ const Home = ({ projectsData }) => {
         <div className="sec-content">
           <div className="section-label">
             <span className="idx-rule"></span>
-            <span>[ 002 ]&nbsp;&nbsp;PROJECTS</span>
+            <span>[ 001 ]&nbsp;&nbsp;PROJECTS</span>
           </div>
           <div className="hero-text-wrap hero-wrap-section">
             <span className="hero-text on" style={{ fontSize: '86px' }}>Work</span>
@@ -161,12 +128,44 @@ const Home = ({ projectsData }) => {
         </div>
       </div>
 
-      {/* SECTION 3: RESUME */}
+      {/* SECTION 2: ABOUT */}
+      <div className="section" id="s2">
+        <div className="rule-h" style={{ top: '108px' }}></div>
+        <div className="coord-tl">
+          <div>X_000 / Y_002</div>
+        </div>
+        <div className="coord-tr">
+          <div>Full-stack Developer</div>
+        </div>
+        {/* Content in upper area */}
+        <div className="prev-top">
+          <div className="about-grid">
+            <div className="about-item">Based<span className="about-val">Houston, TX</span></div>
+            <div className="about-item">Focus<span className="about-val">Full-Stack / AI</span></div>
+            <div className="about-item">Certified<span className="about-val">AWS · IBM</span></div>
+            <div className="about-item">Stack<span className="about-val">React · Django · Node.js</span></div>
+          </div>
+        </div>
+        {/* Title at bottom-left, link at bottom-right */}
+        <div className="sec-content">
+          <div className="section-label">
+            <span className="idx-rule"></span>
+            <span>[ 002 ]&nbsp;&nbsp;ABOUT</span>
+          </div>
+          <div className="hero-text-wrap hero-wrap-name">
+            <span className="hero-text on" style={{ fontSize: '86px', whiteSpace: 'normal', lineHeight: 1 }}>Dillon Guillory</span>
+          </div>
+          <div className="meta-row">
+            <Link href="/about" className="prev-link">View profile →</Link>
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 3: EXPERIENCE — commented out, hardcoded categories not tied to real resume data
       <div className="section" id="s3">
         <div className="rule-h" style={{ top: '108px' }}></div>
         <div className="coord-tl"><div>X_000 / Y_003</div></div>
         <div className="coord-tr"><div>Experience</div></div>
-        {/* Content in upper area */}
         <div className="prev-top">
           <div className="resume-rows">
             <div className="res-row">
@@ -187,7 +186,6 @@ const Home = ({ projectsData }) => {
             </div>
           </div>
         </div>
-        {/* Title at bottom-left, link at bottom-right */}
         <div className="sec-content">
           <div className="section-label">
             <span className="idx-rule"></span>
@@ -197,10 +195,11 @@ const Home = ({ projectsData }) => {
             <span className="hero-text on" style={{ fontSize: '86px' }}>Experience</span>
           </div>
           <div className="meta-row">
-            <Link href="/resume" className="prev-link">View full resume →</Link>
+            <Link href="/about" className="prev-link">View full resume →</Link>
           </div>
         </div>
       </div>
+      */}
 
       {/* PROGRESS RAIL */}
       <div className="progress-rail">
@@ -211,20 +210,16 @@ const Home = ({ projectsData }) => {
             <span className="tick-num">00</span>
           </div>
           <div className="tick-item" data-sec="1">
-            <span className="tick-label">About</span>
+            <span className="tick-label">Projects</span>
             <span className="tick-mark"></span>
             <span className="tick-num">01</span>
           </div>
           <div className="tick-item" data-sec="2">
-            <span className="tick-label">Projects</span>
+            <span className="tick-label">About</span>
             <span className="tick-mark"></span>
             <span className="tick-num">02</span>
           </div>
-          <div className="tick-item" data-sec="3">
-            <span className="tick-label">Resume</span>
-            <span className="tick-mark"></span>
-            <span className="tick-num">03</span>
-          </div>
+          {/* Resume tick removed along with the commented-out Experience section above */}
         </div>
       </div>
     </div>
